@@ -10,20 +10,23 @@ function SignupScreen() {
         auth.createUserWithEmailAndPassword(
           emailRef.current.value,
           passwordRef.current.value
-        ).then((authUser)=>{
-             console.log(authUser);
-        }).catch(err=>{
+        )
+        .then((authUser)=>{
+            //  console.log(authUser);
+        })
+        .catch(err=>{
             alert(err.message);
         });
     };
     const signIn=(e)=>{
         e.preventDefault();
+
         auth.signInWithEmailAndPassword(
             emailRef.current.value,
             passwordRef.current.value
           )
           .then((authUser)=>{
-               console.log(authUser);
+              //  console.log(authUser);
           })
           .catch(err=>{
               alert(err.message);
@@ -32,7 +35,7 @@ function SignupScreen() {
   return (
     <div className='signupScreen'>
       <form>
-        <h1>Sign In</h1>
+        <h1 className='signup_title'>Sign In</h1>
         <input ref={emailRef} type="email" placeholder='Email'/>
         <input ref={passwordRef} type="password" placeholder='Password'/>
         <button type="submit" onClick={signIn}>Sign In</button>
