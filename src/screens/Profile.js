@@ -4,6 +4,7 @@ import Nav from '../Nav'
 import { useSelector } from 'react-redux'
 import { selectUser } from '../features/userSlice'
 import { auth } from '../firebase'
+import PlanScreen from './PlanScreen'
 function Profile() {
     const user=useSelector(selectUser);
  
@@ -18,20 +19,7 @@ function Profile() {
             <h2>{user.email}</h2>
             <div className="profileScreen_plans">
                 <h3>Plans</h3>
-                <div className="plans_info">
-                <div className="plan_item">
-                  <h5>Premium</h5>
-                  <button>Subscribe</button>
-                </div>
-                <div className="plan_item">
-                  <h5>Basic</h5>
-                  <button>Subscribe</button>
-                </div>
-                <div className="plan_item">
-                  <h5>Standard</h5>
-                  <button>Subscribe</button>
-                </div>
-                </div>
+                <PlanScreen/>
                 <button onClick={()=>auth.signOut()}className="profileScreen_signOut">
                     Sign Out
                 </button>
@@ -39,7 +27,7 @@ function Profile() {
            </div>
         </div>
       </div>
-    </div>
+      </div>
   )
 }
 
